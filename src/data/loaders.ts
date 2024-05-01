@@ -69,7 +69,7 @@ export async function getPageData(slug: string) {
 }
 
 export async function getArticleData(slug: string) {
-  const url = baseUrl + "/api/articles?filters[slug][$eq]=" + slug;
+  const url = baseUrl + "/api/articles?populate=*&filters[slug][$eq]=" + slug;
 
   const response = await fetchData(url);
 
