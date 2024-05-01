@@ -7,11 +7,11 @@ interface Image {
 
 export interface Post {
     id: number,
-    Titre: string,
-    Description: string,
-    Image: Image,
-    Intro: any,
-    Contenu: any,
+    title: string,
+    description: string,
+    image: Image,
+    intro: any,
+    contenu: any,
     slug: string,
     createdAt: string,
     updatedAt: string,

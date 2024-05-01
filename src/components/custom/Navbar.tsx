@@ -15,9 +15,9 @@ export default function Navbar ({ data }: { data: any })  {
       <div className="max-w-[1200px] h-24 mx-auto flex gap-8 items-center justify-between ">
         <Link className="h-full" href={"/"}><img className="h-full" src="/images/logo.png"  alt="" /></Link>
         <ul className="hidden lg:flex gap-6 uppercase text-xs font-semibold tracking-wider">
-          {data.Menu.map((item : any, i: number) => (
+          {data.menu.map((item : any, i: number) => (
             <li key={i}>
-              <Link href={item.Url}>{item.Label}</Link>
+              <Link href={item.url}>{item.label}</Link>
             </li>
           ))}
         </ul>

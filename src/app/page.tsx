@@ -1,4 +1,3 @@
-import HomeAbout from "@/components/custom/HomeAbout";
 import HomeHero from "@/components/custom/HomeHero";
 import Sections from "@/components/shared/Sections";
 import Card from "@/components/ui/Card";
@@ -18,8 +17,7 @@ export default async function Home() {
         ))
       } 
       </section>
-      <Sections data={data.sections}/>
-      {/* <HomeAbout data={data.about} /> */}
+      <Sections data= {data.blocks}/>
     </>
   );
 }
