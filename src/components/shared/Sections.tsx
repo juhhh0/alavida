@@ -5,12 +5,12 @@ import ContentBlock from "./blocks/ContentBlock";
 export default function Sections({ data }: { data: any[] }) {
   return (
     <>
-      {data.map((item) => {
+      {data.map((item, i) => {
         if (item.__component == "blocks.content") {
-          return <ContentBlock data={item} />;
+          return <ContentBlock key={i} data={item} />;
         }
         if (item.__component == "blocks.content-image") {
-          return <ContentImageBlock data={item} />;
+          return <ContentImageBlock key={i} data={item} />;
         }
       })}
     </>
