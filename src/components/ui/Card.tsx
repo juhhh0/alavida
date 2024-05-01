@@ -20,7 +20,7 @@ export default function Card({ data }: { data: Post }) {
       <div className="text-white absolute z-10 bottom-0 p-6">
         <h3 className="text-xl font-bold">{data.title}</h3>
         <p className="mb-4">{data.description}</p>
-        <Cta data={{ link: data.slug, label: "Voir l'article" }} />
+        <Cta data={{ link: "/post/" + data.slug, label: "Voir l'article" }} />
       </div>
     </article>
   );

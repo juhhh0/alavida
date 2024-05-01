@@ -28,6 +28,11 @@ html::-webkit-scrollbar {
   width: 20px;
 }
 
+.scrolled .social-icons {
+  
+  filter: brightness(0) saturate(100%) invert(19%) sepia(67%) saturate(1572%) hue-rotate(207deg) brightness(94%) contrast(91%);
+}
+
 .home-hero h1, h2, h3, h4{
   font-size: 28px;
 }
