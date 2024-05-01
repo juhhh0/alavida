@@ -1,11 +1,13 @@
-import React from 'react'
-import BlocksRendererClient from '../BlocksRendererClient'
+import React from "react";
+import BlocksRendererClient from "../BlocksRendererClient";
 
-export default function ContentBlock({data}: {data: any}) {
+export default function ContentBlock({ data }: { data: any }) {
   // console.log(data)
   return (
-    <section className='max-w mx-auto'>
-      <BlocksRendererClient content={data} />
+    <section className="bg-white">
+      <div className="max-w mx-auto">
+        <BlocksRendererClient content={data} />
+      </div>
     </section>
-  )
+  );
 }
