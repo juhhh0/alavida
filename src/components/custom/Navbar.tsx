@@ -36,7 +36,7 @@ export default function Navbar ({ data }: { data: any })  {
   }, [])
   return (
     <nav className={`fixed h-28 h- z-20 top-0 left-0 w-full backdrop-brightness-90 py-4 px-10 text-white${scrolled || open ? " scrolled bg-white !text-[#283787]" : ""}`}>
-      <div className="max-w-[1200px] h-full  mx-auto flex gap-8 items-center justify-between ">
+      <div className="max-w h-full  mx-auto flex gap-8 items-center justify-between ">
         <Link className="h-full" href={"/"}><img className="h-full" src="/images/logo.png"  alt="" /></Link>
         <ul className="hidden lg:flex gap-6 uppercase text-md font-semibold tracking-wider">
           {data.menu.map((item : any, i: number) => (
