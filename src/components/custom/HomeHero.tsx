@@ -15,7 +15,7 @@ export default function HomeHero({ hero }: Props) {
   return (
     <div className="h-screen relative flex items-center text-white">
       <div
-        className="absolute w-full h-full bg-bottom bg-cover brightness-50"
+        className="fixed -z-10 w-full h-full bg-bottom bg-cover brightness-75"
         style={{
           backgroundImage: `url(https://strapi.juhh.fr${hero.image.url})`,
         }}

@@ -1,4 +1,4 @@
-import BlocksRendererClient from "@/components/ui/BlocksRendererClient";
+import BlocksRendererClient from "@/components/shared/BlocksRendererClient";
 import { getArticleData } from "@/data/loaders";
 import React from "react";
 

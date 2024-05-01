@@ -32,12 +32,8 @@ export async function getHomePageData(){
             description: data.HeroDescription,
             logo: data.HeroLogo
         },
-        about: {
-            title: data.AboutTitle,
-            content: data.AboutContent,
-            cta: data.AboutCta,
-        },
-        posts: posts.data
+        posts: posts.data,
+        sections: data.Sections
     }
 
     return homeData;
