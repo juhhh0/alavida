@@ -16,13 +16,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const globalData = await getGlobalPageData();
+  const data = await getGlobalPageData();
 
   return (
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <Navbar data={globalData}/>
+          <Navbar data={data}/>
         </header>
         <main>{children}</main>
       </body>

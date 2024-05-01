@@ -21,9 +21,26 @@ export async function getGlobalPageData() {
 }
 
 export async function getHomePageData(){
-    const url = baseUrl + "/api/home-page?populate=*"
+    const homeUrl = baseUrl + "/api/home-page?populate=*"
+    const postsUrl = baseUrl + "/api/articles?populate=*&pagination[limit]=3&sort[0]=createdAt:desc"
+    const data = await fetchData(homeUrl);
+    const posts = await fetchData(postsUrl)
 
-    return await fetchData(url);
+    const homeData = {
+        hero: {
+            image: data.HeroImage,
+            description: data.HeroDescription,
+            logo: data.HeroLogo
+        },
+        about: {
+            title: data.AboutTitle,
+            content: data.AboutContent,
+            cta: data.AboutCta,
+        },
+        posts: posts.data
+    }
+
+    return homeData;
 }
 
 export async function getPageData(slug: string){
