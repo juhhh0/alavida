@@ -1,7 +1,7 @@
 import { flattenAttributes, getStrapiURL } from "@/lib/utils";
+import qs from "qs";
 
 const baseUrl = getStrapiURL();
-
 
 async function fetchData(url: string) {
   try {
@@ -15,35 +15,65 @@ async function fetchData(url: string) {
 }
 
 export async function getGlobalPageData() {
-  const url = baseUrl + "/api/navbar?populate=*"
+  const url = baseUrl + "/api/navbar?populate=*";
 
   return await fetchData(url);
 }
 
-export async function getHomePageData(){
-    const url = baseUrl + "/api/home-page?populate=*"
+export async function getHomePageData() {
 
-    return await fetchData(url);
+  const homeUrl = new URL("/api/home-page", baseUrl);
+
+  homeUrl.search = qs.stringify({
+    populate: {
+      heroLogo: {
+        populate: true,
+      },
+      heroImage: {
+        populate: true,
+      },
+      blocks: {
+        populate: "*"     
+      },
+    },
+  });
+
+  const data = await fetchData(homeUrl.href);
+
+  const postsUrl =
+    baseUrl +
+    "/api/articles?populate=*&pagination[limit]=3&sort[0]=createdAt:desc";
+  const posts = await fetchData(postsUrl);
+
+  const homeData = {
+    hero: {
+      image: data.heroImage,
+      description: data.heroDescription,
+      logo: data.heroLogo,
+    },
+    posts: posts.data,
+    blocks: data.blocks,
+  };
+
+  return homeData;
 }
 
-export async function getPageData(slug: string){
-    const url = baseUrl + "/api/pages?filters[slug][$eq]=" + slug
+export async function getPageData(slug: string) {
+  const url = baseUrl + "/api/pages?filters[slug][$eq]=" + slug;
 
-    const response = await fetchData(url)
+  const response = await fetchData(url);
 
-    const data = response?.data[0]
+  const data = response?.data[0];
 
-    return data;
-
+  return data;
 }
 
-export async function getArticleData(slug: string){
-    const url = baseUrl + "/api/articles?filters[slug][$eq]=" + slug
+export async function getArticleData(slug: string) {
+  const url = baseUrl + "/api/articles?populate=*&filters[slug][$eq]=" + slug;
 
-    const response = await fetchData(url)
+  const response = await fetchData(url);
 
-    const data = response?.data[0]
+  const data = response?.data[0];
 
-    return data;
+  return data;
 }
-

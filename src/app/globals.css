@@ -14,6 +14,10 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+.max-w {
+  max-width: 1280px;
+}
+
 .block-renderer h2{
   font-size: 42px;
   font-weight: bolder;
@@ -21,11 +25,17 @@ html::-webkit-scrollbar {
 }
 
 .block-renderer h3{
-  color: red;
+  font-weight: 600;
+
 }
 
 .social-icons > li img {
   width: 20px;
+}
+
+.scrolled .social-icons {
+  
+  filter: brightness(0) saturate(100%) invert(19%) sepia(67%) saturate(1572%) hue-rotate(207deg) brightness(94%) contrast(91%);
 }
 
 .home-hero h1, h2, h3, h4{

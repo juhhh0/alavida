@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { getGlobalPageData } from "@/data/loaders";
 import Navbar from "@/components/custom/Navbar";
+import Footer from "@/components/custom/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,15 +17,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const globalData = await getGlobalPageData();
+  const data = await getGlobalPageData();
 
   return (
     <html lang="en">
       <body className={inter.className}>
         <header>
-          <Navbar data={globalData}/>
+          <Navbar data={data}/>
         </header>
         <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   );
