@@ -12,11 +12,11 @@ export default async function Home() {
     <>
       <HomeHero hero={data.hero} />
       <section className="flex flex-col lg:flex-row justify-center items-center px-3 gap-3 py-16 bg-white">
-      {/* {
-        data.posts > 0 && data.posts.map((item : Post, i: number) => (
+      {
+        data.posts && data.posts.map((item : Post, i: number) => (
           <Card key={i} data={item}/>
         ))
-      }  */}
+      } 
       </section>
       <Sections data= {data.blocks}/>
     </>
