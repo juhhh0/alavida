@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { getGlobalPageData } from "@/data/loaders";
 import Navbar from "@/components/custom/Navbar";
 import Footer from "@/components/custom/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ALAVIDA Blog Voyage | Road Trip - Blog Voyage Road Trip Amérique latine",
@@ -21,7 +21,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <header>
           <Navbar data={data}/>
         </header>

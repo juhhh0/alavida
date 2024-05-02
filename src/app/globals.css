@@ -18,6 +18,10 @@ html::-webkit-scrollbar {
   max-width: 1280px;
 }
 
+.block-renderer a {
+  color: rgb(79, 79, 198);
+}
+
 .block-renderer h2{
   font-size: 42px;
   font-weight: bolder;
