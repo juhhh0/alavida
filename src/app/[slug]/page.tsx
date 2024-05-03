@@ -1,6 +1,7 @@
 import ContentBlock from "@/components/shared/blocks/ContentBlock";
 import Hero from "@/components/shared/Hero";
 import Sections from "@/components/shared/Sections";
+import Summary from "@/components/shared/Summary";
 import { getPageData } from "@/data/loaders";
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -13,6 +14,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <section className="bg-white pt-12">
       <ContentBlock data={data.intro} />
     </section>
+    <Summary data={data.blocks}/>
     {data.blocks && <Sections data={data.blocks}/>}
     </>
   );

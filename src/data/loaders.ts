@@ -59,10 +59,9 @@ export async function getHomePageData() {
 }
 
 export async function getPageData(slug: string) {
-  const url = baseUrl + "/api/pages?populate=*&filters[slug][$eq]=" + slug;
 
-  const testurl = new URL("/api/pages", baseUrl)
-  testurl.search = qs.stringify({
+  const url = new URL("/api/pages", baseUrl)
+  url.search = qs.stringify({
     filters: {
       $or: [
         { slug: { $containsi: slug } },
@@ -78,14 +77,9 @@ export async function getPageData(slug: string) {
     }
   })
 
-  const testd = await fetchData(testurl.href)
-  console.log(testd)
+  const data = await fetchData(url.href)
 
-  const response = await fetchData(url);
-
-  const data = response?.data[0];
-
-  return testd.data[0];
+  return data.data[0];
 }
 
 export async function getArticleData(slug: string) {
