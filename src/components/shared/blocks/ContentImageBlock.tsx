@@ -9,7 +9,7 @@ export default function ContentImageBlock({ data }: { data: any }) {
           <BlocksRendererClient content={data.content} />
         </div>
         <div className="lg:w-1/2">
-          <img className="max-w-full" src={"http://strapi.juhh.fr" + data.image.url} alt="" />
+          <img className="max-w-full max-h-[750px]" src={"http://strapi.juhh.fr" + data.image?.url} alt="" />
         </div>
       </div>
     </section>

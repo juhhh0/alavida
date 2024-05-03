@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -15,22 +16,33 @@ html::-webkit-scrollbar {
 }
 
 .max-w {
-  max-width: 1280px;
+  max-width: 1100px;
 }
 
 .block-renderer a {
   color: rgb(79, 79, 198);
 }
 
+.block-renderer p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
 .block-renderer h2{
   font-size: 42px;
   font-weight: bolder;
   text-align: center;
+  margin-bottom: 16px;
 }
 
 .block-renderer h3{
   font-weight: 600;
 
+}
+
+.block-renderer img {
+  max-height: 750px;
 }
 
 .social-icons > li img {

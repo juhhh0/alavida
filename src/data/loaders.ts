@@ -61,11 +61,31 @@ export async function getHomePageData() {
 export async function getPageData(slug: string) {
   const url = baseUrl + "/api/pages?populate=*&filters[slug][$eq]=" + slug;
 
+  const testurl = new URL("/api/pages", baseUrl)
+  testurl.search = qs.stringify({
+    filters: {
+      $or: [
+        { slug: { $containsi: slug } },
+      ],
+    },
+    populate: {
+      image: {
+        populate: true,
+      },
+      blocks: {
+        populate: "*"
+      }
+    }
+  })
+
+  const testd = await fetchData(testurl.href)
+  console.log(testd)
+
   const response = await fetchData(url);
 
   const data = response?.data[0];
 
-  return data;
+  return testd.data[0];
 }
 
 export async function getArticleData(slug: string) {
