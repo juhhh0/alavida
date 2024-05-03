@@ -59,7 +59,7 @@ export async function getHomePageData() {
 }
 
 export async function getPageData(slug: string) {
-  const url = baseUrl + "/api/pages?filters[slug][$eq]=" + slug;
+  const url = baseUrl + "/api/pages?populate=*&filters[slug][$eq]=" + slug;
 
   const response = await fetchData(url);
 

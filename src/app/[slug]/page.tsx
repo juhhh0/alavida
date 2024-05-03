@@ -1,3 +1,5 @@
+import ContentBlock from "@/components/shared/blocks/ContentBlock";
+import Hero from "@/components/shared/Hero";
 import { getPageData } from "@/data/loaders";
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -5,6 +7,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getPageData(params.slug)
 
   if (!data) return <></>;
-
-  return <h1 className="text-black">{data.Titre}</h1>;
+  return (
+    <>
+    <Hero data={{title: data.title, image: data.image, date: data.type == "article" ? new Date(data.createdAt).toLocaleDateString() : ""}}/>
+    <section className="bg-white">
+      <ContentBlock data={data.intro} />
+    </section>
+    </>
+  );
 }
