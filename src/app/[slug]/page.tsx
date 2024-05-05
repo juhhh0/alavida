@@ -19,7 +19,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <Summary data={data.blocks}/>
     {data.blocks && <Sections data={data.blocks}/>}
     
-    {others.length > 0 && <RebondCategorie categorie={data.categories?.data[0]?.name} data={others}/>}
+    {others.length > 0 && (<>
+    <RebondCategorie categorie={data.categories?.data[0]} data={others}/>
+    </>
+  )}
   </section>
     </>
   );

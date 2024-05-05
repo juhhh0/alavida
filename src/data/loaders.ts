@@ -131,3 +131,31 @@ export async function getArticleData(slug: string) {
 
   return data;
 }
+
+export async function getCategorieData(slug: string){
+  const url = baseUrl + "/api/categories?populate=*&filters[slug][$eq]=" + slug;
+
+  const response = await fetchData(url);
+
+  const data = response?.data[0];
+
+  const othersUrl = new URL("/api/pages", baseUrl)
+  othersUrl.search = qs.stringify({
+    filters: {
+      slug: {
+        $ne: slug
+      },
+      categories: {
+        slug: {
+          $eq: slug
+        }
+      }
+    },
+    populate: "*"
+
+  })
+
+  const othersData = await fetchData(othersUrl.href)
+
+  return {data: data, others: othersData.data};
+}
