@@ -6,6 +6,8 @@
 :root{
   --yellow: #f5c464;
   --blue: #283786;
+  --grey: #f3f6f5;
+  --dark-grey: #62615C;
 }
 
 body {
@@ -23,7 +25,7 @@ html::-webkit-scrollbar {
   max-width: 1100px;
 }
 
-.block-renderer h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   @apply scroll-mt-28;  
 }
 
@@ -46,7 +48,9 @@ html::-webkit-scrollbar {
 }
 
 .block-renderer h3{
-  font-weight: 600;
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--blue);
 
 }
 
@@ -63,6 +67,29 @@ html::-webkit-scrollbar {
   filter: brightness(0) saturate(100%) invert(19%) sepia(67%) saturate(1572%) hue-rotate(207deg) brightness(94%) contrast(91%);
 }
 
-.home-hero h1, h2, h3, h4{
+.home-hero h1, .home-hero h2, .home-hero h3, .home-hero h4{
   font-size: 28px;
+}
+
+.step {
+  line-height: 1.8rem;
+}
+
+.step h1, .step h2, .step h3, .step h4, .step h5, .step h6 {
+  color: #62615C;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.step p, .step span, .step li {
+font-size: 14px;
+font-weight: 400;
+}
+
+.step ul {
+  list-style: disc inside;
+}
+
+.step-img{
+  width: calc(33.33% - 4px);
 }

@@ -72,10 +72,25 @@ export async function getPageData(slug: string) {
         populate: true,
       },
       blocks: {
-        populate: "*"
+          on: {
+            "blocks.content-image": {
+              populate: "*"
+            },
+            "blocks.content": {
+              populate: {
+                steps: {
+                  populate: "*"
+                }
+              }
+            }
+        }
       }
     }
   })
+
+  // const testu = baseUrl + "/api/pages?populate[image][populate]=true&populate[blocks][populate][steps][populate]=*&filters[slug][$eq]=" + slug + "&populate[blocks][populate]=*"
+  // const testd = await fetchData(testu)
+  // console.log(testu, testd.data[0].blocks[2], "test !")
 
   const data = await fetchData(url.href)
 

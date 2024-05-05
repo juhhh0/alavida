@@ -11,7 +11,7 @@ export default function BlocksRendererClient({
 }) {
   if (!content) return null;
   return (
-    <div className="block-renderer">
+    <div className="block-renderer max-w mx-auto">
       <BlocksRenderer content={content} blocks={{
         heading: ({ children, level }) => {
           switch (level) {

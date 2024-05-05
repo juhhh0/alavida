@@ -7,7 +7,7 @@ export default function Sections({ data }: { data: any[] }) {
     <>
       {data.map((item, i) => {
         if (item.__component == "blocks.content") {
-          return <ContentBlock key={i} data={item.content} />;
+          return <ContentBlock key={i} data={item} />;
         }
         if (item.__component == "blocks.content-image") {
           return <ContentImageBlock key={i} data={item} />;
