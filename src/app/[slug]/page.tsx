@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <>
     <Hero data={{title: data.title, image: data.image, date: data.type == "article" ? new Date(data.createdAt).toLocaleDateString() : ""}}/>
-    <section className="bg-white pt-12">
+    <section className="bg-white">
       <ContentBlock data={data.intro} />
     </section>
     <Summary data={data.blocks}/>

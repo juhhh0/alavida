@@ -3,15 +3,17 @@ import BlocksRendererClient from "../BlocksRendererClient";
 
 export default function ContentImageBlock({ data }: { data: any }) {
   return (
-    <section className="bg-yellow-500 py-10">
-      <div className="max-w w-full mx-auto flex flex-col lg:flex-row gap-3">
+    <section className={`relative ${data.backgroundColor == "yellow" ? "bg-yellow-500 py-20" : "bg-white py-10"}`}>
+     { data.backgroundColor == "yellow" && <img src="/images/wave-top.svg" alt="" className="absolute w-full top-0" />}
+      <div className={`max-w w-full px-6 mx-auto flex flex-col ${data.imagePosition == "left" ? "lg:flex-row-reverse" : "lg:flex-row"} gap-3`}>
         <div className="lg:w-1/2 flex items-center">
           <BlocksRendererClient content={data.content} />
         </div>
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 flex items-center justify-center">
           <img className="max-w-full max-h-[700px]" src={"http://strapi.juhh.fr" + data.image?.url} alt="" />
         </div>
       </div>
+      {data.backgroundColor == "yellow" && <img src="/images/wave-bot.svg" className="absolute bottom-0 w-full" alt="" />}
     </section>
   );
 }

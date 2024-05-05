@@ -14,15 +14,13 @@ export default function Summary({ data }: { data: any }) {
     });
   });
 
-  console.log(list);
-
   return (
     <div className="bg-white pb-10">
-      <ol className="max-w mx-auto flex flex-col gap-3 list-decimal	list-inside">
+      <ol className="max-w mx-auto flex flex-col gap-3 list-decimal	list-inside px-4">
        <span className="text-blue-900 font-medium text-2xl">Sommaire</span> 
         {list.length > 0 &&
-          list.map((item) => (
-            <li>
+          list.map((item, i) => (
+            <li key={i}>
               <a className="hover:text-blue-900 hover:underline" href={"#" + item}>{item}</a>
             </li>
           ))}
