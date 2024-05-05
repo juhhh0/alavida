@@ -64,7 +64,7 @@ export async function getPageData(slug: string) {
   url.search = qs.stringify({
     filters: {
       $or: [
-        { slug: { $containsi: slug } },
+        { slug: { $eq: slug } },
       ],
     },
     populate: {
@@ -96,22 +96,30 @@ export async function getPageData(slug: string) {
 
   const data = await fetchData(url.href)
 
-  // const othersUrl = new URL("/api/pages", baseUrl)
-  // othersUrl.search = qs.stringify({
-  //   filters: {
-  //     categories: {
-  //       name: {
-  //         $in: "Amérique Latine"
-  //       }
-  //     }
-  //   }
+  const othersUrl = new URL("/api/pages", baseUrl)
+  othersUrl.search = qs.stringify({
+    filters: {
+      slug: {
+        $ne: slug
+      },
+      categories: {
+        name: {
+          $contains: "Amérique Latine"
+        }
+      }
+    },
+    populate: "*"
 
-  // })
+  })
 
-  // const othersData = await fetchData(othersUrl.href)
-  // console.log(othersData," oth")
+  const othersData = await fetchData(othersUrl.href)
 
-  return data.data[0];
+  const pageData = {
+    data: data.data[0],
+    others: othersData.data
+  }
+
+  return pageData;
 }
 
 export async function getArticleData(slug: string) {

@@ -7,7 +7,6 @@ export default function Sections({ data }: { data: any[] }) {
   return (
     <>
       {data.map((item, i) => {
-        console.log(item.__component)
         if (item.__component == "blocks.content") {
           return <ContentBlock key={i} data={item} />;
         }

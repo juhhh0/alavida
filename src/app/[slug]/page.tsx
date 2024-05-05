@@ -1,13 +1,14 @@
 import ContentBlock from "@/components/shared/blocks/ContentBlock";
 import BlocksRendererClient from "@/components/shared/BlocksRendererClient";
 import Hero from "@/components/shared/Hero";
+import RebondCategorie from "@/components/shared/RebondCategorie";
 import Sections from "@/components/shared/Sections";
 import Summary from "@/components/shared/Summary";
 import { getPageData } from "@/data/loaders";
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
-  const data = await getPageData(params.slug)
+  const {data, others} = await getPageData(params.slug)
   if (!data) return <></>;
   return (
     <>
@@ -15,9 +16,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <section className="bg-white py-10">
     <BlocksRendererClient content={data.intro} />
 
-    </section>
     <Summary data={data.blocks}/>
     {data.blocks && <Sections data={data.blocks}/>}
+    
+    {others.length > 0 && <RebondCategorie categorie={data.categories?.data[0]?.name} data={others}/>}
+  </section>
     </>
   );
 }
