@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         'alavida-blue': '#283786',
         'alavida-yellow': '#f5c464',
+        'alavida-dark-yellow': '#ffb300'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

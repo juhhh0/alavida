@@ -27,10 +27,10 @@ export default function HomeHero({ hero }: Props) {
           alt=""
         />
         <hr className="w-1/2 m-auto mt-4 mb-2" />
-        <div className="home-hero text-center">
+        <div className="home-hero text-center mb-6">
           <BlocksRenderer content={hero.description} />
         </div>
-        <div className="mx-auto w-fit mt-4">
+        <div className="mx-auto w-fit">
          <Cta data={{link: "/destinations", label: "Nos Destinations"}} />
         </div>
       </div>
