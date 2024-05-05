@@ -42,7 +42,7 @@ export async function getHomePageData() {
 
   const postsUrl =
     baseUrl +
-    "/api/articles?populate=*&pagination[limit]=3&sort[0]=createdAt:desc";
+    "/api/pages?populate=*&pagination[limit]=3&sort[0]=createdAt:desc";
   const posts = await fetchData(postsUrl);
 
   const homeData = {
@@ -71,9 +71,15 @@ export async function getPageData(slug: string) {
       image: {
         populate: true,
       },
+      categories: {
+        populate: "*"
+      },
       blocks: {
           on: {
             "blocks.content-image": {
+              populate: "*"
+            },
+            "blocks.image-image": {
               populate: "*"
             },
             "blocks.content": {
@@ -88,11 +94,22 @@ export async function getPageData(slug: string) {
     }
   })
 
-  // const testu = baseUrl + "/api/pages?populate[image][populate]=true&populate[blocks][populate][steps][populate]=*&filters[slug][$eq]=" + slug + "&populate[blocks][populate]=*"
-  // const testd = await fetchData(testu)
-  // console.log(testu, testd.data[0].blocks[2], "test !")
-
   const data = await fetchData(url.href)
+
+  // const othersUrl = new URL("/api/pages", baseUrl)
+  // othersUrl.search = qs.stringify({
+  //   filters: {
+  //     categories: {
+  //       name: {
+  //         $in: "Amérique Latine"
+  //       }
+  //     }
+  //   }
+
+  // })
+
+  // const othersData = await fetchData(othersUrl.href)
+  // console.log(othersData," oth")
 
   return data.data[0];
 }

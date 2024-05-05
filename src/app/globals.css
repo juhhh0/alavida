@@ -71,10 +71,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 28px;
 }
 
-.step {
-  line-height: 1.8rem;
-}
-
 .step h1, .step h2, .step h3, .step h4, .step h5, .step h6 {
   color: #62615C;
   font-size: 20px;
@@ -84,6 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 .step p, .step span, .step li {
 font-size: 14px;
 font-weight: 400;
+line-height: 1.6rem;
 }
 
 .step ul {

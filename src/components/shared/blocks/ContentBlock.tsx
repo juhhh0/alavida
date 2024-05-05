@@ -3,7 +3,6 @@ import BlocksRendererClient from "../BlocksRendererClient";
 import Step from "./Step";
 
 export default function ContentBlock({ data }: { data: any }) {
-  // console.log(data.steps)
   return (
     <section className="bg-white py-10">
       <div className="max-w px-4 mx-auto">
