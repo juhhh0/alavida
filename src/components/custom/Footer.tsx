@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-900 text-white px-4 py-8">
+    <footer className="bg-alavida-blue text-white px-4 py-8">
       <div className="max-w flex flex-col-reverse md:flex-row gap-6 justify-between items-center mx-auto">
         <ul className="flex-1">
           <li>Mentions légales et CGU</li>

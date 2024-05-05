@@ -3,7 +3,7 @@ import BlocksRendererClient from "../BlocksRendererClient";
 
 export default function ContentImageBlock({ data }: { data: any }) {
   return (
-    <section className={`relative ${data.backgroundColor == "yellow" ? "bg-yellow-500 py-20" : "bg-white py-10"}`}>
+    <section className={`relative ${data.backgroundColor == "yellow" ? "bg-alavida-yellow py-20" : "bg-white py-10"}`}>
      { data.backgroundColor == "yellow" && <img src="/images/wave-top.svg" alt="" className="absolute w-full top-0" />}
       <div className={`max-w w-full px-6 mx-auto flex flex-col ${data.imagePosition == "left" ? "lg:flex-row-reverse" : "lg:flex-row"} gap-3`}>
         <div className="lg:w-1/2 flex items-center">
