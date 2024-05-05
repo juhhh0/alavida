@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <section className="bg-white py-10">
     <BlocksRendererClient content={data.intro} />
 
-    <Summary data={data.blocks}/>
+   { data.blocks.length > 0 && <Summary data={data.blocks}/>}
     {data.blocks && <Sections data={data.blocks}/>}
     
     {others.length > 0 && (<>
