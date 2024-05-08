@@ -5,7 +5,7 @@ const baseUrl = getStrapiURL();
 
 async function fetchData(url: string) {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: 'no-store' });
     const data = await response.json();
     return flattenAttributes(data);
   } catch (error) {
