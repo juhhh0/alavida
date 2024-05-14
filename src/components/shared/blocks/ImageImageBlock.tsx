@@ -3,7 +3,7 @@ import BlocksRendererClient from "../BlocksRendererClient";
 
 export default function ImageImageBlock({ data }: { data: any }) {
   return (
-    <div className="bg-white">
+    <div className="bg-white px-4">
       <div className="max-w mx-auto">
         <BlocksRendererClient content={data.content} />
         <div className="flex max-w-full">
